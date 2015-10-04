@@ -5,7 +5,7 @@ for ((i=0; i<=$2; i++)) do
 done
 procs=0
 while read line; do
-wget -e robots=off  -nvcdp -t 0 -Hkrl 0 -I "$1" -A jpg,jpeg,gif,tif,png -R *s.*  -P n1/$line "boards.4chan.org/$1/res/$line" & 
+wget -e robots=off  -nvcdp -t 0 -Hkrl 0 -I "$1" -A jpg,jpeg,gif,tif,png -R *s.*  -P images/$line "boards.4chan.org/$1/res/$line" & 
 	procs=$[$procs + 1]; [ $procs = 6 ] && { wait; procs=0; }
 done < threads ; wait
 rm threads
